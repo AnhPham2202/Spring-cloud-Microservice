@@ -11,8 +11,8 @@ public class StudentResponse {
     private String firstName;
     private String lastName;
     private String email;
-    private String street;
-    private String city;
+
+    private AddressResponse addressResponse;
 
     public StudentResponse(Student student) {
         this.id = student.getId();

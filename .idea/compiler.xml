@@ -8,18 +8,23 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="student" />
+        <module name="eureka-server" />
         <module name="address" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
       <module name="address" target="11" />
+      <module name="eureka-server" target="11" />
       <module name="student" target="11" />
+      <module name="student (1) (na.pham)" target="11" />
     </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="address" options="-parameters" />
+      <module name="eureka-server" options="-parameters" />
       <module name="student" options="-parameters" />
+      <module name="student (1) (na.pham)" options="-parameters" />
     </option>
   </component>
 </project>

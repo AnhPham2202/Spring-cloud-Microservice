@@ -4,21 +4,31 @@ import na.pham.student.student.request.CreateStudentRequest;
 import na.pham.student.student.response.StudentResponse;
 import na.pham.student.student.service.StudentService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.net.URISyntaxException;
+
 
 @RestController
-@RequestMapping("/api/address")
+@RequestMapping("/api/student")
 public class StudentController {
     @Autowired
-    private StudentService studentService;
+    StudentService studentService;
 
-    @GetMapping("/{id}")
-    public StudentResponse getStudent(@PathVariable Long id) {
-        return new StudentService().getById(id);
+    @PostMapping("/create")
+    public StudentResponse createStudent (@RequestBody CreateStudentRequest createStudentRequest) {
+        return studentService.createStudent(createStudentRequest);
     }
 
-    @PostMapping("/")
-    public StudentResponse createStudent(@RequestBody CreateStudentRequest createAddressRequest) {
-        return studentService.createStudent(createAddressRequest);
+    @GetMapping("getById/{id}")
+    public StudentResponse getById (@PathVariable long id) {
+        return studentService.getById(id);
     }
+
 }
